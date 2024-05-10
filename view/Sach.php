@@ -14,7 +14,7 @@ mysqli_set_charset($conn, "utf8");
             <th>Số lượng</th>
         </tr>
         <?php
-        $sql = "SELECT * FROM tbl_TenSach";
+        $sql = "SELECT * FROM TenSach";
         $result = mysqli_query($conn, $sql);
         $stt = 1;
 
