@@ -17,7 +17,7 @@ mysql_query("SET NAME 'utf8'");
         $sql="SELECT * FROM tbl_TenSach";
         $kq= mysql_querry($sql);
 
-        $STT=1;
+        $stt=1;
 
         while($dong = mysql_fetch_array($kq)){
             echo "<tr>";
