@@ -1,5 +1,5 @@
 <?php
-$conn = mysqli_connect("localhost", "root", "quanlysach", "quanlysach") or die("Không thể kết nối đến MySQL!");
+$conn = mysqli_connect("localhost", "root", "", "quanlysach") or die("Không thể kết nối đến MySQL!");
 mysqli_set_charset($conn, "utf8");
 
 ?>
