@@ -1,10 +1,10 @@
 <?php
-$conn = mysqli("localhost","root","quanlysach") or die("Khong the ket noi den MySQL!");
-mysql_select_db("quanlysach") or die("Khong ton tai CSDL nay!");
-mysql_query("SET NAME 'utf8'");
+$conn = mysqli_connect("localhost", "root", "quanlysach", "quanlysach") or die("Không thể kết nối đến MySQL!");
+mysqli_set_charset($conn, "utf8");
+
 ?>
 
-<h1>Danh mục sách <h1>
+<h1>Danh mục sách</h1>
 <table border="1" cellpadding="2" cellspacing="0" width="100%">
     <tbody>
         <tr>
@@ -12,24 +12,23 @@ mysql_query("SET NAME 'utf8'");
             <th>Mã sách</th>
             <th>Tên sách</th>
             <th>Số lượng</th>
-    </tr>
-    <?php
-        $sql="SELECT * FROM tbl_TenSach";
-        $kq= mysql_querry($sql);
+        </tr>
+        <?php
+        $sql = "SELECT * FROM tbl_TenSach";
+        $result = mysqli_query($conn, $sql);
+        $stt = 1;
 
-        $stt=1;
-
-        while($dong = mysql_fetch_array($kq)){
+        while ($row = mysqli_fetch_assoc($result)) {
             echo "<tr>";
-            echo "<tr>{stt}</tr>";
-            echo "<tr>{$dong['MaSach']}</tr>";
-            echo "<tr>{$dong['TenSach']}</tr>";
-            echo "<tr>{$dong['SoLuong']}</tr>";
+            echo "<td>{$stt}</td>";
+            echo "<td>{$row['MaSach']}</td>";
+            echo "<td>{$row['TenSach']}</td>";
+            echo "<td>{$row['SoLuong']}</td>";
             echo "</tr>";
 
             $stt++;
         }
-        mysql_close($conn);
-    ?>
+        mysqli_close($conn);
+        ?>
     </tbody>
 </table>
